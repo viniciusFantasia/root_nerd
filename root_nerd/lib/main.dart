@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
       // home: LoginPage(),
       routes: {
         '/': (context) => LoginPage(),
+        '/cadastroUser': (context) => CadastroUserPage(),
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      );
-    } 
+    );
   }
+}
