@@ -10,7 +10,7 @@ class LoginPage extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Image.asset('img/home.png'),
+            Image.asset('../img/home.png'),
             ],
             ),
       ),
