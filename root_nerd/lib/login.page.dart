@@ -7,6 +7,13 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text( "Login",)
       ),
+      body: Container(
+        child: Column(
+          children: [
+            Image.asset('img/home.png'),
+            ],
+            ),
+      ),
       );
   }
 }
