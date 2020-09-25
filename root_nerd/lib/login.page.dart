@@ -8,9 +8,15 @@ class LoginPage extends StatelessWidget {
         title: Text( "Login",)
       ),
       body: Container(
-        child: Column(
+        alignment: Alignment.center,
+        color: Colors.black,
+        child: Column( 
+          
           children: [
-            Image.asset('../img/home.png'),
+            CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage('../img/home.png'),
+            ),
             ],
             ),
       ),
