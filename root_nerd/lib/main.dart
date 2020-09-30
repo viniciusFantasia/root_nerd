@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:root_nerd/login.page.dart';
 import 'package:root_nerd/cadastroUser.page.dart';
+import 'package:root_nerd/cadastroPost.page.dart';
 import 'package:root_nerd/home.page.dart';
 import 'package:root_nerd/comentario.page.dart';
 import 'package:root_nerd/detalhe.page.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => LoginPage(),
         '/cadastroUser': (context) => CadastroUserPage(),
+        '/cadastroPost': (context) => CadastroPostPage(),
         '/home': (context) => HomePage(),
         '/comentario': (context) => ComentarioPage(),
         '/detalhe': (context) => DetalhePage(),
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.white,
+        accentColor: Colors.white,
         scaffoldBackgroundColor: Color(0xFF000000),
       ),
     );
