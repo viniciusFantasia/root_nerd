@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF000000),
+      ),
     );
   }
 }
