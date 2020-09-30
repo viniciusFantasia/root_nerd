@@ -39,7 +39,7 @@ class ItemNerd extends StatelessWidget {
             ),
             Text(
                 'Que incrível a tecnologia usada nesse episódio, animação fluida e coreografia de luta impecável, amei demais, cada vez melhor!'),
-            Text('https://www.crunchyroll.com/pt-br'),
+            Text('www.siteparaver.com'),
             Divider(),
             GestureDetector(
               // onTap: () => Navigator.of(context).pushNamed('/cadastro'),
@@ -74,10 +74,16 @@ class ItemNerd extends StatelessWidget {
                   Row(
                     children: [
                       Column(
-                        children: [Icon(Icons.add), Text('1')],
+                        children: [
+                          Icon(Icons.add),
+                          Text('1'),
+                        ],
                       ),
                       Column(
-                        children: [Icon(Icons.add), Text('2')],
+                        children: [
+                          Icon(Icons.add),
+                          Text('2'),
+                        ],
                       )
                     ],
                   )
