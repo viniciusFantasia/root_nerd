@@ -87,7 +87,14 @@ class CadastroUserPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
+              FlatButton(
+                child: Text("Cadastrar"),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/home');
+                },
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Já tem uma conta?',
@@ -101,7 +108,7 @@ class CadastroUserPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
