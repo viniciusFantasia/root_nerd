@@ -27,7 +27,16 @@ class LoginPage extends StatelessWidget {
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: Colors.grey),
                         labelText: "E-mail",
-                      border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        )
+                      ),
                     ),
                       style: TextStyle(color: Colors.white),
                   ),
@@ -38,7 +47,16 @@ class LoginPage extends StatelessWidget {
                     decoration: InputDecoration(
                       labelStyle: TextStyle(color: Colors.grey),
                       labelText: "Senha",
-                      border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        )
+                      ),
                     ),
                     style: TextStyle(color: Colors.white),
                     obscureText: true,
@@ -55,10 +73,11 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         "Entrar",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: Color(0xFF99e265),
                     ),
                   ),
                   Row(
@@ -71,7 +90,7 @@ class LoginPage extends StatelessWidget {
                       FlatButton(
                         padding: EdgeInsets.all(0),
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/registro');
+                          Navigator.of(context).pushNamed('/cadastroUser');
                         },
                         child: Text(
                           "Clique aqui.",
