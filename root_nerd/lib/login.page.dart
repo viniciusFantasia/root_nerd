@@ -5,10 +5,10 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text( "Login",)
+        title: Text( "Login",),
       ),
       body: Container(
-        alignment: Alignment.center,
+         padding: EdgeInsets.all(10),
         color: Colors.black,
         child: Column( 
           
@@ -17,7 +17,12 @@ class LoginPage extends StatelessWidget {
               radius: 100,
               backgroundImage: AssetImage('../img/home.png'),
             ),
-            ],
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: "Nome",
+                ),            
+              ), 
+              ],
             ),
       ),
       );
