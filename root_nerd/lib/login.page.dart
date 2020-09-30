@@ -7,7 +7,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double larguraTela = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Center(
         child: SingleChildScrollView(
           child: Container(
