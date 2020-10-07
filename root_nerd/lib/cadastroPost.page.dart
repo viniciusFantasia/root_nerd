@@ -90,10 +90,11 @@ class CadastroPostPage extends StatelessWidget {
                   child: Text(
                     "Publicar",
                     style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  color: Theme.of(context).primaryColor,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      color: Color(0xFF99e265),
                 ),
               ),
             ],

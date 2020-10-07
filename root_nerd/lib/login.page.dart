@@ -22,43 +22,26 @@ class LoginPage extends StatelessWidget {
             ),
                   SizedBox(height: 20),
                   TextFormField(
-                    validator: (value) =>
-                        value.isEmpty ? "Campo obrigatório" : null,
-                      decoration: InputDecoration(
-                        labelStyle: TextStyle(color: Colors.grey),
-                        labelText: "E-mail",
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white
-                        )
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white
-                        )
-                      ),
-                    ),
-                      style: TextStyle(color: Colors.white),
-                  ),
+                decoration: InputDecoration(
+                  labelText: "E-mail",
+                  enabledBorder: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(),
+                ),
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+                validator: (value) =>
+                    value.isEmpty ? 'Campo obrigatório' : null,
+                autovalidate: false,
+              ),
                   SizedBox(height: 8),
                   TextFormField(
                     validator: (value) =>
                         value.isEmpty ? "Campo obrigatório" : null,
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.grey),
                       labelText: "Senha",
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white
-                        )
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white
-                        )
-                      ),
+                      border: OutlineInputBorder(),
                     ),
-                    style: TextStyle(color: Colors.white),
                     obscureText: true,
                   ),
                   SizedBox(height: 8),
