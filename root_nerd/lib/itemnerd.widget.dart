@@ -15,7 +15,7 @@ class ItemNerd extends StatelessWidget {
         padding: EdgeInsets.all(8),
         //color: Colors.white,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xFF4F4F4F),
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(
@@ -24,19 +24,29 @@ class ItemNerd extends StatelessWidget {
                 blurRadius: 12,
               ),
             ]),
-        child: Column(
+        
+        child: 
+  
+        Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            Column(
+              children:[
+                Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('One Piece - Ep.872'),
                 Text('#anime'),
               ],
             ),
+              ],
+            ),
+            SizedBox(height: 5),
             Image.network(
               'https://via.placeholder.com/700x250.png?text=Image1',
             ),
+            SizedBox(height: 5),
             Text(
                 'Que incrível a tecnologia usada nesse episódio, animação fluida e coreografia de luta impecável, amei demais, cada vez melhor!'),
             Text('www.siteparaver.com'),
@@ -44,7 +54,10 @@ class ItemNerd extends StatelessWidget {
             GestureDetector(
               // onTap: () => Navigator.of(context).pushNamed('/cadastro'),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Row(
+                    children:[
                   CircleAvatar(
                     radius: 25,
                     backgroundImage: NetworkImage(
@@ -71,22 +84,31 @@ class ItemNerd extends StatelessWidget {
                       )
                     ],
                   ),
+                    ],
+                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
                   Row(
+
                     children: [
                       Column(
                         children: [
-                          Icon(Icons.add),
+                          Icon(Icons.stars),
                           Text('1'),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Icons.add),
+                          Icon(Icons.add_comment),
                           Text('2'),
                         ],
                       )
                     ],
                   )
+                ],
+                
+                ),
                 ],
               ),
             ),

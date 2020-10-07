@@ -24,11 +24,10 @@ class LoginPage extends StatelessWidget {
                   TextFormField(
                 decoration: InputDecoration(
                   labelText: "E-mail",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
+                  //focusedBorder: OutlineInputBorder(),
                 ),
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).primaryColorLight,
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -40,8 +39,11 @@ class LoginPage extends StatelessWidget {
                         value.isEmpty ? "Campo obrigatório" : null,
                     decoration: InputDecoration(
                       labelText: "Senha",
-                      border: OutlineInputBorder(),
+                      //focusedBorder: OutlineInputBorder(),
                     ),
+                    style: TextStyle(
+                  color: Theme.of(context).primaryColorLight,
+                ),
                     obscureText: true,
                   ),
                   SizedBox(height: 8),
