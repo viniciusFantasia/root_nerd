@@ -4,29 +4,15 @@ class CadastroUserPage extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
+       double larguraTela = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF99e265),
-        centerTitle: true,
-        title: Text(
-          "Cadastro de Usuário",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.black),
-        ),
-        // actions: [
-        //   IconButton(
-        //       icon: Icon(Icons.save),
-        //       onPressed: () {
-        //         if (formKey.currentState.validate()) {
-        //           //TODO: Salvar os dados do banco de dados (Firestone)
-        //           //TODO: Mostrar uma mensagem de sucesso.
-        //           Navigator.of(context).pop();
-        //         }
-        //       })
-        // ],
-      ),
-      body: Container(
-        margin: EdgeInsets.all(10),
+      
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            width: larguraTela > 700 ? 400 : larguraTela,
+            padding: EdgeInsets.all(10),
+        
         child: Form(
           key: formKey,
           child: Column(
@@ -50,6 +36,7 @@ class CadastroUserPage extends StatelessWidget {
               Text(
                 'Clique para alterar sua foto',
                 style: TextStyle(
+                  color: Theme.of(context).primaryColorLight,
                   fontSize: 16,
                 ),
               ),
@@ -60,6 +47,9 @@ class CadastroUserPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Nome",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
@@ -71,6 +61,9 @@ class CadastroUserPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "E-mail",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
@@ -82,6 +75,9 @@ class CadastroUserPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Senha",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
@@ -141,6 +137,9 @@ class CadastroUserPage extends StatelessWidget {
             ],
           ),
         ),
+          ),
+        ),
+      
       ),
     );
   }

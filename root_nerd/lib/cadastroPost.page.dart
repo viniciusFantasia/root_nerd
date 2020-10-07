@@ -4,6 +4,7 @@ class CadastroPostPage extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
+    double larguraTela = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -15,9 +16,9 @@ class CadastroPostPage extends StatelessWidget {
         actions: [
           FlatButton(
               child: Text(
-                "Salvar",
+                "Rascunho",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                 ),
               ),
               onPressed: () {
@@ -31,8 +32,11 @@ class CadastroPostPage extends StatelessWidget {
         backgroundColor: Color(0xFF99e265),
         centerTitle: true,
       ),
-      body: Container(
-        margin: EdgeInsets.all(20),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            width: larguraTela > 700 ? 400 : larguraTela,
+            padding: EdgeInsets.all(10),
         child: Form(
           key: formKey,
           child: Column(
@@ -42,7 +46,12 @@ class CadastroPostPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text('Upload de Imagem'),
+              Text(
+                'Upload de Imagem',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColorLight,
+                ),
+              ),
               SizedBox(
                 height: 30,
               ),
@@ -50,6 +59,9 @@ class CadastroPostPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Nome",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
@@ -61,6 +73,9 @@ class CadastroPostPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Referência",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
@@ -72,6 +87,9 @@ class CadastroPostPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Escreva uma Descrição",
                 ),
+                style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                 minLines: 1,
                 maxLines: 5,
                 maxLength: 200,
@@ -104,6 +122,8 @@ class CadastroPostPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
         ),
       ),
     );
