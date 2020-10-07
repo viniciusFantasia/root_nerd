@@ -83,7 +83,13 @@ class CadastroPostPage extends StatelessWidget {
                     if (formKey.currentState.validate())
                       Navigator.of(context).pushNamed('/home');
                   },
-                  child: Text("Publicar"),
+                  child: Text(
+                    "Publicar",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   color: Color(0xFF99e265),
                 ),
               ),
