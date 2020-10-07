@@ -10,29 +10,29 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-           width: larguraTela > 700 ? 400 : larguraTela,
+            width: larguraTela > 700 ? 400 : larguraTela,
             padding: EdgeInsets.all(10),
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
-                CircleAvatar(
-                  radius: 100,
-                  backgroundImage: AssetImage('../img/home.png'),
-            ),
+                  CircleAvatar(
+                    radius: 100,
+                    backgroundImage: AssetImage('../img/home.png'),
+                  ),
                   SizedBox(height: 20),
                   TextFormField(
-                decoration: InputDecoration(
-                  labelText: "E-mail",
-                  //focusedBorder: OutlineInputBorder(),
-                ),
-                style: TextStyle(
-                  color: Theme.of(context).primaryColorLight,
-                ),
-                validator: (value) =>
-                    value.isEmpty ? 'Campo obrigatório' : null,
-                autovalidate: false,
-              ),
+                    decoration: InputDecoration(
+                      labelText: "E-mail",
+                      //focusedBorder: OutlineInputBorder(),
+                    ),
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                    validator: (value) =>
+                        value.isEmpty ? 'Campo obrigatório' : null,
+                    autovalidate: false,
+                  ),
                   SizedBox(height: 8),
                   TextFormField(
                     validator: (value) =>
@@ -42,11 +42,11 @@ class LoginPage extends StatelessWidget {
                       //focusedBorder: OutlineInputBorder(),
                     ),
                     style: TextStyle(
-                  color: Theme.of(context).primaryColorLight,
-                ),
+                      color: Theme.of(context).primaryColorLight,
+                    ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: 20),
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -60,6 +60,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
                       color: Color(0xFF99e265),
@@ -68,10 +69,12 @@ class LoginPage extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("Não tem cadastro?",
-                      style: TextStyle(
+                      Text(
+                        "Não tem cadastro?",
+                        style: TextStyle(
                           color: Colors.white,
-                        ),),
+                        ),
+                      ),
                       FlatButton(
                         padding: EdgeInsets.all(0),
                         onPressed: () {

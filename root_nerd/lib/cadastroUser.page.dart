@@ -6,9 +6,12 @@ class CadastroUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF99e265),
+        centerTitle: true,
         title: Text(
           "Cadastro de Usuário",
           textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.black),
         ),
         // actions: [
         //   IconButton(
@@ -23,7 +26,7 @@ class CadastroUserPage extends StatelessWidget {
         // ],
       ),
       body: Container(
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(10),
         child: Form(
           key: formKey,
           child: Column(
@@ -44,15 +47,18 @@ class CadastroUserPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text('Clique para alterar sua foto'),
+              Text(
+                'Clique para alterar sua foto',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
               SizedBox(
                 height: 30,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Nome",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -64,8 +70,6 @@ class CadastroUserPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "E-mail",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -77,8 +81,6 @@ class CadastroUserPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Senha",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -87,11 +89,26 @@ class CadastroUserPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              FlatButton(
-                child: Text("Cadastrar"),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/home');
-                },
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: RaisedButton(
+                  onPressed: () {
+                    if (formKey.currentState.validate())
+                      Navigator.of(context).pushNamed('/home');
+                  },
+                  child: Text(
+                    "Finalizar",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  color: Color(0xFF99e265),
+                ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -99,14 +116,26 @@ class CadastroUserPage extends StatelessWidget {
                   Text(
                     'Já tem uma conta?',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
                   ),
                   SizedBox(
                     width: 3,
                   ),
-                  Text(
-                    'Clique aqui',
-                    textAlign: TextAlign.center,
-                  ),
+                  FlatButton(
+                    padding: EdgeInsets.all(0),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/');
+                    },
+                    child: Text(
+                      "Clique aqui.",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ],

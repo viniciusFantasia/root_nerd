@@ -10,7 +10,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("RootNerd"),
+        title: new Text(
+          "RootNerd - Home",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
         backgroundColor: Color(0xFF99e265),
         centerTitle: true,
       ),
@@ -31,6 +36,7 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pushNamed('/cadastroPost');
         },
+        backgroundColor: Color(0xFF99e265),
       ),
     );
   }

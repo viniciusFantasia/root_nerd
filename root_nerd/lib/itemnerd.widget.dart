@@ -24,22 +24,33 @@ class ItemNerd extends StatelessWidget {
                 blurRadius: 12,
               ),
             ]),
-        
-        child: 
-  
-        Column(
+
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
-              children:[
-                Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('One Piece - Ep.872'),
-                Text('#anime'),
-              ],
-            ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'One Piece - Ep.872',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '#anime',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF99e265),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
             SizedBox(height: 5),
@@ -48,8 +59,18 @@ class ItemNerd extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-                'Que incrível a tecnologia usada nesse episódio, animação fluida e coreografia de luta impecável, amei demais, cada vez melhor!'),
-            Text('www.siteparaver.com'),
+              'Que incrível a tecnologia usada nesse episódio, animação fluida e coreografia de luta impecável, amei demais, cada vez melhor!',
+              style: TextStyle(
+                fontSize: 14,
+              ),
+            ),
+            Text(
+              'www.siteparaver.com',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey,
+              ),
+            ),
             Divider(),
             GestureDetector(
               // onTap: () => Navigator.of(context).pushNamed('/cadastro'),
@@ -57,58 +78,80 @@ class ItemNerd extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    children:[
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundImage: NetworkImage(
-                        'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
-                  ),
-                  SizedBox(
-                    width: 6,
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundImage: NetworkImage(
+                            'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "@Otaku",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            "30/09/2020",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        "@Otaku",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        "30/09/2020",
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 12,
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Icon(
+                                Icons.stars,
+                                size: 30,
+                              ),
+                              Text(
+                                '1',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/comentario');
+                            },
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.add_comment,
+                                  size: 30,
+                                ),
+                                Text(
+                                  '1',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),
-                    ],
-                  ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                  Row(
-
-                    children: [
-                      Column(
-                        children: [
-                          Icon(Icons.stars),
-                          Text('1'),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(Icons.add_comment),
-                          Text('2'),
-                        ],
-                      )
-                    ],
-                  )
-                ],
-                
-                ),
                 ],
               ),
             ),

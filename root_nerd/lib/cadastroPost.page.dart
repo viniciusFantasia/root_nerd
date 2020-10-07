@@ -7,11 +7,19 @@ class CadastroPostPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Novo Post",
+          "Nova Publicação",
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
         actions: [
           FlatButton(
-              child: Text("SALVAR"),
+              child: Text(
+                "Salvar",
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
               onPressed: () {
                 if (formKey.currentState.validate()) {
                   //TODO: Salvar os dados do banco de dados (Firestone)
@@ -52,8 +60,6 @@ class CadastroPostPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Referência",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -64,16 +70,19 @@ class CadastroPostPage extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Escreva uma Legenda",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
+                  labelText: "Escreva uma Descrição",
                 ),
+                minLines: 1,
+                maxLines: 5,
+                maxLength: 200,
+                enabled: true,
+                keyboardType: TextInputType.multiline,
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
                 autovalidate: false,
               ),
               SizedBox(
-                height: 10,
+                height: 60,
               ),
               SizedBox(
                 width: double.infinity,
@@ -84,11 +93,11 @@ class CadastroPostPage extends StatelessWidget {
                       Navigator.of(context).pushNamed('/home');
                   },
                   child: Text(
-                    "Publicar",
+                    "Compartilhar",
                     style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   ),
                   color: Color(0xFF99e265),
                 ),

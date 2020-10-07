@@ -38,14 +38,12 @@ class ComentarioPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(20),
+              margin: EdgeInsets.all(10),
               child: Column(
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Nome",
-                      enabledBorder: OutlineInputBorder(),
-                      focusedBorder: OutlineInputBorder(),
+                      labelText: "Digite aqui seu Comentário",
                     ),
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
