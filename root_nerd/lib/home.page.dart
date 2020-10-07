@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("RootNerd"),
+        backgroundColor: Color(0xFF99e265),
+        centerTitle: true,
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
         child: Icon(Icons.add),
         tooltip: "Novo Item Nerd",
         onPressed: () {
-          Navigator.of(context).pushNamed('/cadastro');
+          Navigator.of(context).pushNamed('/cadastroPost');
         },
       ),
     );

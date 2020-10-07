@@ -7,20 +7,21 @@ class CadastroPostPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Criação de Post",
-          textAlign: TextAlign.center,
+          "Novo Post",
         ),
-        // actions: [
-        //   IconButton(
-        //       icon: Icon(Icons.save),
-        //       onPressed: () {
-        //         if (formKey.currentState.validate()) {
-        //           //TODO: Salvar os dados do banco de dados (Firestone)
-        //           //TODO: Mostrar uma mensagem de sucesso.
-        //           Navigator.of(context).pop();
-        //         }
-        //       })
-        // ],
+        actions: [
+          FlatButton(
+              child: Text("SALVAR"),
+              onPressed: () {
+                if (formKey.currentState.validate()) {
+                  //TODO: Salvar os dados do banco de dados (Firestone)
+                  //TODO: Mostrar uma mensagem de sucesso.
+                  Navigator.of(context).pop();
+                }
+              })
+        ],
+        backgroundColor: Color(0xFF99e265),
+        centerTitle: true,
       ),
       body: Container(
         margin: EdgeInsets.all(20),
@@ -40,11 +41,6 @@ class CadastroPostPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Nome",
-                  enabledBorder: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(),
-                ),
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Campo obrigatório' : null,
@@ -87,13 +83,8 @@ class CadastroPostPage extends StatelessWidget {
                     if (formKey.currentState.validate())
                       Navigator.of(context).pushNamed('/home');
                   },
-                  child: Text(
-                    "Publicar",
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  color: Theme.of(context).primaryColor,
+                  child: Text("Publicar"),
+                  color: Color(0xFF99e265),
                 ),
               ),
             ],

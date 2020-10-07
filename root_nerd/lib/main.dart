@@ -24,11 +24,7 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Colors.white,
-        scaffoldBackgroundColor: Color(0xFF000000),
-      ),
+      theme: ThemeData.dark(),
     );
   }
 }
