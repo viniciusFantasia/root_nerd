@@ -90,10 +90,15 @@ class ItemNerd extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "@Otaku",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/perfil');
+                            },
+                            child: Text(
+                              "@Otaku",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                           Text(

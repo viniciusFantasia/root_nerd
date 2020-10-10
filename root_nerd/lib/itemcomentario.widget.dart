@@ -30,12 +30,17 @@ class ItemComentario extends StatelessWidget {
                   backgroundImage: NetworkImage(
                       'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
                 ),
-                Text(
-                  '@Otaku',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF99e265),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/perfil');
+                  },
+                  child: Text(
+                    '@Otaku',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF99e265),
+                    ),
                   ),
                 )
               ],
