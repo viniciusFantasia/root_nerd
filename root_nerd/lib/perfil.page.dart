@@ -63,7 +63,7 @@ class PerfilPage extends StatelessWidget {
                     child: RaisedButton(
                       onPressed: () {
                         if (formKey.currentState.validate())
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushNamed('/atualizarPerfil');
                       },
                       child: Text(
                         "Editar Perfil",
@@ -84,7 +84,7 @@ class PerfilPage extends StatelessWidget {
                     child: RaisedButton(
                       onPressed: () {
                         if (formKey.currentState.validate())
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushNamed('/atualizarSenha');
                       },
                       child: Text(
                         "Atualizar Senha",

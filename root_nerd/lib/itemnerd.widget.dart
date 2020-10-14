@@ -79,10 +79,15 @@ class ItemNerd extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(
-                            'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/perfil');
+                        },
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage(
+                              'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
+                        ),
                       ),
                       SizedBox(
                         width: 6,

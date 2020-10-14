@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-class CadastroUserPage extends StatelessWidget {
+class AtualizarSenhaPage extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
@@ -24,18 +24,9 @@ class CadastroUserPage extends StatelessWidget {
                     radius: 135,
                     backgroundColor: Colors.brown[300],
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('../img/home.png'),
+                      backgroundImage: NetworkImage(
+                          'https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2019/12/03/812540/20191203093743682044o.jpg'),
                       radius: 130,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Clique para alterar sua foto',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColorLight,
-                      fontSize: 16,
                     ),
                   ),
                   SizedBox(
@@ -43,11 +34,12 @@ class CadastroUserPage extends StatelessWidget {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Nome",
+                      labelText: "Senha Atual",
                     ),
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
                     ),
+                    obscureText: true,
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
                     autovalidate: false,
@@ -57,31 +49,18 @@ class CadastroUserPage extends StatelessWidget {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "E-mail",
+                      labelText: "Nova Senha",
                     ),
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
                     ),
+                    obscureText: true,
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
                     autovalidate: false,
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Senha",
-                    ),
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColorLight,
-                    ),
-                    validator: (value) =>
-                        value.isEmpty ? 'Campo obrigatório' : null,
-                    autovalidate: false,
-                  ),
-                  SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -89,10 +68,10 @@ class CadastroUserPage extends StatelessWidget {
                     child: RaisedButton(
                       onPressed: () {
                         if (formKey.currentState.validate())
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushNamed('/perfil');
                       },
                       child: Text(
-                        "Finalizar",
+                        "Atualizar",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -100,38 +79,7 @@ class CadastroUserPage extends StatelessWidget {
                       ),
                       color: Color(0xFF99e265),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Já tem uma conta?',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 3,
-                      ),
-                      FlatButton(
-                        padding: EdgeInsets.all(0),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/');
-                        },
-                        child: Text(
-                          "Clique aqui.",
-                          style: TextStyle(
-                            color: Colors.blue,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                  )
                 ],
               ),
             ),
