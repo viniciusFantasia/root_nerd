@@ -39,18 +39,17 @@ class ComentarioPage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.all(10),
-              child: Column(
+              child: Row(
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Digite aqui seu Comentário",
+                  Flexible(
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "Digite aqui seu Comentário",
+                      ),
+                      validator: (value) =>
+                          value.isEmpty ? 'Campo obrigatório' : null,
+                      autovalidate: false,
                     ),
-                    validator: (value) =>
-                        value.isEmpty ? 'Campo obrigatório' : null,
-                    autovalidate: false,
-                  ),
-                  SizedBox(
-                    width: 5,
                   ),
                   IconButton(
                     icon: Icon(Icons.keyboard_arrow_right),

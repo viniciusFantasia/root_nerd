@@ -81,7 +81,7 @@ class AtualizarPerfilPage extends StatelessWidget {
                     child: RaisedButton(
                       onPressed: () {
                         if (formKey.currentState.validate())
-                          Navigator.of(context).pushNamed('/perfil');
+                          Navigator.of(context).pop();
                       },
                       child: Text(
                         "Atualizar",
