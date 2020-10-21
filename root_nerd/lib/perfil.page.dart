@@ -13,6 +13,40 @@ class PerfilPage extends StatelessWidget {
           "Perfil",
           style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          Row(
+            children: [
+              FlatButton(
+                  child: Text(
+                    "Editar Perfil",
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (formKey.currentState.validate()) {
+                      //TODO: Salvar os dados do banco de dados (Firestone)
+                      //TODO: Mostrar uma mensagem de sucesso.
+                      Navigator.of(context).pushNamed('/atualizarPerfil');
+                    }
+                  }),
+              FlatButton(
+                  child: Text(
+                    "Editar Senha",
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (formKey.currentState.validate()) {
+                      //TODO: Salvar os dados do banco de dados (Firestone)
+                      //TODO: Mostrar uma mensagem de sucesso.
+                      Navigator.of(context).pushNamed('/atualizarSenha');
+                    }
+                  })
+            ],
+          ),
+        ],
         backgroundColor: Color(0xFF99e265),
         centerTitle: true,
       ),
@@ -55,45 +89,45 @@ class PerfilPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: RaisedButton(
-                  onPressed: () {
-                    if (formKey.currentState.validate())
-                      Navigator.of(context).pushNamed('/atualizarPerfil');
-                  },
-                  child: Text(
-                    "Editar Perfil",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                  color: Color(0xFF99e265),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: RaisedButton(
-                  onPressed: () {
-                    if (formKey.currentState.validate())
-                      Navigator.of(context).pushNamed('/atualizarSenha');
-                  },
-                  child: Text(
-                    "Atualizar Senha",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                  color: Color(0xFF99e265),
-                ),
-              ),
+              // SizedBox(
+              //   width: double.infinity,
+              //   height: 50,
+              //   child: RaisedButton(
+              //     onPressed: () {
+              //       if (formKey.currentState.validate())
+              //         Navigator.of(context).pushNamed('/atualizarPerfil');
+              //     },
+              //     child: Text(
+              //       "Editar Perfil",
+              //       style: TextStyle(
+              //           color: Colors.black,
+              //           fontWeight: FontWeight.bold,
+              //           fontSize: 20),
+              //     ),
+              //     color: Color(0xFF99e265),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // SizedBox(
+              //   width: double.infinity,
+              //   height: 50,
+              //   child: RaisedButton(
+              //     onPressed: () {
+              //       if (formKey.currentState.validate())
+              //         Navigator.of(context).pushNamed('/atualizarSenha');
+              //     },
+              //     child: Text(
+              //       "Atualizar Senha",
+              //       style: TextStyle(
+              //           color: Colors.black,
+              //           fontWeight: FontWeight.bold,
+              //           fontSize: 20),
+              //     ),
+              //     color: Color(0xFF99e265),
+              //   ),
+              // ),
               SizedBox(
                 height: 10,
               ),

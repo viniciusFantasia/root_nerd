@@ -8,6 +8,7 @@ import 'package:root_nerd/detalhe.page.dart';
 import 'package:root_nerd/perfil.page.dart';
 import 'package:root_nerd/atualizarPerfil.page.dart';
 import 'package:root_nerd/atualizarSenha.page.dart';
+import 'package:root_nerd/rascunho.page.dart';
 
 void main() {
   runApp(MyApp()); // Qual é a classe que será carregada (exibida).
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         '/detalhe': (context) => DetalhePage(),
         '/perfil': (context) => PerfilPage(),
         '/atualizarPerfil': (context) => AtualizarPerfilPage(),
-        '/atualizarSenha': (context) => AtualizarSenhaPage()
+        '/atualizarSenha': (context) => AtualizarSenhaPage(),
+        '/rascunho': (context) => RascunhoPage()
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
