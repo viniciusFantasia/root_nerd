@@ -134,17 +134,17 @@ class PerfilPage extends StatelessWidget {
               Expanded(
                 child: ListView(
                   scrollDirection: Axis.vertical,
-                  children: [
-                    ItemComentario(),
-                    ItemNerd(),
-                    ItemComentario(),
-                    ItemNerd(),
-                    ItemComentario(),
-                    ItemNerd(),
-                    ItemComentario(),
-                    ItemNerd(),
-                    ItemComentario(),
-                  ],
+                  // children: [
+                  //   ItemComentario(),
+                  //   ItemNerd(),
+                  //   ItemComentario(),
+                  //   ItemNerd(),
+                  //   ItemComentario(),
+                  //   ItemNerd(),
+                  //   ItemComentario(),
+                  //   ItemNerd(),
+                  //   ItemComentario(),
+                  // ],
                 ),
               ),
             ],

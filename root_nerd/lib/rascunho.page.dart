@@ -21,14 +21,14 @@ class RascunhoPage extends StatelessWidget {
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
-        children: [
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-        ],
+        // children: [
+        //   ItemNerd(),
+        //   ItemNerd(),
+        //   ItemNerd(),
+        //   ItemNerd(),
+        //   ItemNerd(),
+        //   ItemNerd(),
+        // ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

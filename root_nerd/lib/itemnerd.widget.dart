@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:root_nerd/models/itemnerd.model.dart';
 
 class ItemNerd extends StatelessWidget {
+  final Item itemnerd;
+
+  ItemNerd(this.itemnerd);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,14 +40,14 @@ class ItemNerd extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'One Piece - Ep.872',
+                      itemnerd.nome,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      '#anime',
+                      itemnerd.hashtag,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -59,13 +64,13 @@ class ItemNerd extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              'Que incrível a tecnologia usada nesse episódio, animação fluida e coreografia de luta impecável, amei demais, cada vez melhor!',
+              itemnerd.descricao,
               style: TextStyle(
                 fontSize: 14,
               ),
             ),
             Text(
-              'www.siteparaver.com',
+              itemnerd.referencia,
               style: TextStyle(
                 fontSize: 12,
                 color: Colors.grey,
@@ -107,7 +112,7 @@ class ItemNerd extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "30/09/2020",
+                            itemnerd.strData,
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey,

@@ -6,6 +6,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:root_nerd/itemnerd.widget.dart';
+import 'package:root_nerd/models/itemnerd.model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -133,17 +134,34 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       )),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-          ItemNerd(),
-        ],
+      body: StreamBuilder<QuerySnapshot>(
+        stream: database.collection('posts').orderBy('nome').snapshots(),
+        builder: (_, snapshot) {
+          if (!snapshot.hasData)
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+
+          return ListView.builder(
+            itemCount: snapshot.data.docs.length,
+            itemBuilder: (context, index) {
+              Item _itemnerd = Item.fromJson(snapshot.data.docs[index].data());
+              return ItemNerd(_itemnerd);
+            },
+          );
+        },
       ),
+      //  ListView(
+      //   scrollDirection: Axis.vertical,
+      //   children: [
+      //     ItemNerd(),
+      //     ItemNerd(),
+      //     ItemNerd(),
+      //     ItemNerd(),
+      //     ItemNerd(),
+      //     ItemNerd(),
+      //   ],
+      // ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         tooltip: "Novo Item Nerd",
