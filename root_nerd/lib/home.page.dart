@@ -3,6 +3,7 @@
 // 3. IMPLEMENTAR O MÉTODO BUILD DA CLASSE
 // 4. RETORNAR O WIDGET QUE DESEJA MOSTRAR NA TELA DENTRO DO MÉTODO BUILD.
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:root_nerd/itemnerd.widget.dart';
 
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  FirebaseFirestore database = FirebaseFirestore.instance;
   bool anime = false;
   bool filme = false;
   bool hq = false;
