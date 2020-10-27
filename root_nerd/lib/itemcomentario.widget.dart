@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:root_nerd/models/itemcomentario.model.dart';
 
 class ItemComentario extends StatelessWidget {
+  final Comentario itemcomentario;
+
+  ItemComentario(this.itemcomentario);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,7 +39,7 @@ class ItemComentario extends StatelessWidget {
                     Navigator.of(context).pushNamed('/perfil');
                   },
                   child: Text(
-                    '@Otaku',
+                    itemcomentario.uid,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -51,7 +55,7 @@ class ItemComentario extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(10),
               child: Text(
-                'Que massa esse anime, obrigado pela recomendação!',
+                itemcomentario.mensagem,
                 style: TextStyle(
                   fontSize: 14,
                 ),
