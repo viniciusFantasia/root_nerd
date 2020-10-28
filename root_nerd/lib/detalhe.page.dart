@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:root_nerd/models/itemnerd.model.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class DetalhePage extends StatelessWidget {
+  FirebaseFirestore _database = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
+    final String _id = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -13,7 +18,16 @@ class DetalhePage extends StatelessWidget {
         backgroundColor: Color(0xFF99e265),
         centerTitle: true,
       ),
-      body: Column(
+      body: FutureBuilder<DocumentSnapshot>(
+          future: _database.collection('posts').doc(_id).get(),   
+          builder: (context, snapshot) {
+            if (!snapshot.hasData)
+              return Center(child: CircularProgressIndicator());
+
+            final Item _itemnerd =
+                Item.fromJson(snapshot.data.id, snapshot.data.data());
+   
+      return Column(
         children: [
           SizedBox(
             height: 350,
@@ -27,7 +41,7 @@ class DetalhePage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'One Piece - Ep.872',
+                  _itemnerd.nome,
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -40,14 +54,15 @@ class DetalhePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '#anime',
+                          _itemnerd.hashtag,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF99e265),
                           ),
                         ),
-                        Text('www.siteparaver.com',
+                        Text(
+                          _itemnerd.referencia,
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
@@ -62,7 +77,9 @@ class DetalhePage extends StatelessWidget {
                               Icons.stars,
                               size: 30,
                             ),
-                            Text('1'),
+                            Text(
+                              _itemnerd.likes.toString()
+                              ),
                           ],
                         ),
                         SizedBox(
@@ -87,7 +104,7 @@ class DetalhePage extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+                  _itemnerd.descricao,
                   style: TextStyle(
                     fontSize: 14,
                   ),
@@ -116,7 +133,8 @@ class DetalhePage extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      );
+          }),
     );
   }
 }

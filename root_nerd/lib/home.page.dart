@@ -9,19 +9,23 @@ import 'package:root_nerd/itemnerd.widget.dart';
 import 'package:root_nerd/models/itemnerd.model.dart';
 
 class HomePage extends StatefulWidget {
+  
   @override
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
-  FirebaseFirestore database = FirebaseFirestore.instance;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final FirebaseFirestore database = FirebaseFirestore.instance;
   bool anime = false;
   bool filme = false;
   bool hq = false;
   bool desenho = false;
   bool manga = false;
+
+
   Widget build(BuildContext context) {
     return new Scaffold(
+      key: _scaffoldKey,
       appBar: new AppBar(
         title: new Text(
           "RootNerd - Home",
@@ -46,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 30,
             ),
-            Text('Filtro',
+            Text('Temas que quero ver:',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -126,8 +130,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   onPressed: () {
-                    //TODO: Salvar os dados do banco de dados (Firestone)
-                    //TODO: Mostrar uma mensagem de sucesso.
                     Navigator.of(context).pushNamed('/perfil');
                   }),
             ),
@@ -145,8 +147,9 @@ class _HomePageState extends State<HomePage> {
           return ListView.builder(
             itemCount: snapshot.data.docs.length,
             itemBuilder: (context, index) {
-              Item _itemnerd = Item.fromJson(snapshot.data.docs[index].data());
-              return ItemNerd(_itemnerd);
+              Item _itemnerd = Item.fromJson(snapshot.data.docs[index].id,
+                  snapshot.data.docs[index].data());
+              return ItemNerd(_scaffoldKey,_itemnerd);
             },
           );
         },

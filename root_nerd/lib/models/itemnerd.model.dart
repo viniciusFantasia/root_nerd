@@ -24,7 +24,7 @@ class Item {
       this.hashtag,
       this.data});
 
-  Item.fromJson(Map<String, dynamic> json) {
+  Item.fromJson(String id, Map<String, dynamic> json) {
     this.nome = json['nome'];
     this.referencia = json['referencia'];
     this.uid = json['uid'];
