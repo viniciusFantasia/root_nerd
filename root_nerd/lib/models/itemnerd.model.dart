@@ -25,6 +25,7 @@ class Item {
       this.data});
 
   Item.fromJson(String id, Map<String, dynamic> json) {
+    this.id = id;
     this.nome = json['nome'];
     this.referencia = json['referencia'];
     this.uid = json['uid'];

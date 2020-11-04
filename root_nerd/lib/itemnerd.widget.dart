@@ -27,7 +27,7 @@ class ItemNerd extends StatelessWidget {
           ),
           onPressed: () {
             // ~ DELETE FROM Ofertas WHERE id = <123>
-            _database.collection('ofertas').doc(itemnerd.id).delete();
+            _database.collection('posts').doc(itemnerd.id).delete();
             Navigator.of(context).pop();
           },
         )

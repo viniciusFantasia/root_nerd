@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:flutter/material.dart";
 
 class CadastroPostPage extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
+
+FirebaseFirestore _database = FirebaseFirestore.instance;
+  String nome, referencia, descricao;
 
   Widget build(BuildContext context) {
     double larguraTela = MediaQuery.of(context).size.width;
@@ -21,12 +25,8 @@ class CadastroPostPage extends StatelessWidget {
                   fontSize: 15,
                 ),
               ),
-              onPressed: () {
-                if (formKey.currentState.validate()) {
-                  //TODO: Salvar os dados do banco de dados (Firestone)
-                  //TODO: Mostrar uma mensagem de sucesso.
-                  Navigator.of(context).pop();
-                }
+              onPressed: () async {
+                
               })
         ],
         backgroundColor: Color(0xFF99e265),
@@ -65,6 +65,7 @@ class CadastroPostPage extends StatelessWidget {
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
                     autovalidate: false,
+                    onSaved: (value) => nome = value,
                   ),
                   SizedBox(
                     height: 10,
@@ -79,6 +80,7 @@ class CadastroPostPage extends StatelessWidget {
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
                     autovalidate: false,
+                    onSaved: (value) => referencia = value,
                   ),
                   SizedBox(
                     height: 10,
@@ -98,6 +100,7 @@ class CadastroPostPage extends StatelessWidget {
                     validator: (value) =>
                         value.isEmpty ? 'Campo obrigatório' : null,
                     autovalidate: false,
+                    onSaved: (value) => descricao = value,
                   ),
                   SizedBox(
                     height: 60,
@@ -106,9 +109,15 @@ class CadastroPostPage extends StatelessWidget {
                     width: double.infinity,
                     height: 50,
                     child: RaisedButton(
-                      onPressed: () {
-                        if (formKey.currentState.validate())
-                          Navigator.of(context).pushNamed('/home');
+                      onPressed: () async {
+                        if (formKey.currentState.validate()) {
+                  //TODO: Salvar os dados do banco de dados (Firestone)
+                  formKey.currentState.save();
+                  await _database.collection('posts').add({'nome': nome, 'referencia': referencia, 'descricao': descricao, 'likes': 0, 'avaliacao': 0, 'data': DateTime.now(), 'hashtag': 'usahuas', 'uid': "3215"});
+
+                  //TODO: Mostrar uma mensagem de sucesso.
+                  Navigator.of(context).pop();
+                }
                       },
                       child: Text(
                         "Compartilhar",
