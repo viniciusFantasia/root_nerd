@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:root_nerd/models/itemnerd.model.dart';
 
 class ItemNerd extends StatelessWidget {
   FirebaseFirestore _database = FirebaseFirestore.instance;
+  FirebaseAuth _auth = FirebaseAuth.instance;
   final Item itemnerd;
   final GlobalKey<ScaffoldState> scaffoldKey;
 
@@ -43,24 +45,33 @@ class ItemNerd extends StatelessWidget {
         Navigator.of(context).pushNamed("/detalhe", arguments: itemnerd.id);
       },
       onLongPress: () {
-        scaffoldKey.currentState.showBottomSheet((context) => Container(
-            height: 120,
-            child: ListView(
-              children: [
-                ListTile(
-                  title: Text("Editar"),
-                  leading: Icon(Icons.edit),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  title: Text("Apagar", style: TextStyle(color: Colors.red)),
-                  leading: Icon(Icons.delete, color: Colors.red),
-                  onTap: () => confirmaExclusao(context, itemnerd.id),
-                )
-              ],
-            )));
+        if (_auth.currentUser.uid == itemnerd.uid) {
+          scaffoldKey.currentState.showBottomSheet(
+            (context) => Container(
+              height: 120,
+              color: Colors.white,
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: Text("Editar", style: TextStyle(color: Colors.red)),
+                    leading: Icon(Icons.edit, color: Colors.red),
+                  
+                    onTap: () {
+                      // Implementar tela de edição de oferta.
+                    
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text("Apagar", style: TextStyle(color: Colors.red)),
+                    leading: Icon(Icons.delete, color: Colors.red),
+                    onTap: () => confirmaExclusao(context, itemnerd.id),
+                  )
+                ],
+              ),
+            ),
+          );
+        }
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(12, 12, 12, 0),
@@ -152,7 +163,7 @@ class ItemNerd extends StatelessWidget {
                               Navigator.of(context).pushNamed('/perfil');
                             },
                             child: Text(
-                              "@Otaku",
+                              itemnerd.nomeUsuario,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                               ),

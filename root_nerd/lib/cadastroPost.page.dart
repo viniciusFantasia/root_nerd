@@ -1,13 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 
 class CadastroPostPage extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
 FirebaseFirestore _database = FirebaseFirestore.instance;
+final FirebaseAuth _auth = FirebaseAuth.instance;
   String nome, referencia, descricao;
 
   Widget build(BuildContext context) {
+    
     double larguraTela = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -113,7 +116,8 @@ FirebaseFirestore _database = FirebaseFirestore.instance;
                         if (formKey.currentState.validate()) {
                   //TODO: Salvar os dados do banco de dados (Firestone)
                   formKey.currentState.save();
-                  await _database.collection('posts').add({'nome': nome, 'referencia': referencia, 'descricao': descricao, 'likes': 0, 'avaliacao': 0, 'data': DateTime.now(), 'hashtag': 'usahuas', 'uid': "3215"});
+                  User user = _auth.currentUser;
+                  await _database.collection('posts').add({'nome': nome, 'referencia': referencia, 'descricao': descricao, 'likes': 0, 'avaliacao': 0, 'data': DateTime.now(), 'hashtag': 'usahuas', "uid": user.uid, "nomeUsuario": user.displayName });
 
                   //TODO: Mostrar uma mensagem de sucesso.
                   Navigator.of(context).pop();

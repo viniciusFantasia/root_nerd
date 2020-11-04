@@ -12,6 +12,7 @@ class Item {
   Timestamp data;
   String get strData =>
       "${data.toDate().day}/${data.toDate().month}/${data.toDate().year}";
+      String nomeUsuario;
 
   Item(
       {this.id,
@@ -34,6 +35,7 @@ class Item {
     this.likes = json['likes'] ?? 0;
     this.hashtag = json['hashtag'];
     this.data = json['data'];
+    this.nomeUsuario = json['nomeUsuario'] ?? '';
     // this.likes = json['likes'] != null ? json['likes'] : 0; // if ternário
   }
 }
