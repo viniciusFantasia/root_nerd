@@ -14,8 +14,8 @@ class Comentario {
   });
 
   Comentario.fromJson(Map<String, dynamic> json) {
-    this.mensagem = json['mensagem'];
-    this.uid = json['uid'];
+    this.mensagem = json['mensagem'] ?? '';
+    this.uid = json['uid'] ?? '';
     this.data = json['data'];
     // this.likes = json['likes'] != null ? json['likes'] : 0; // if ternário
   }

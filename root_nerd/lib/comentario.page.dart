@@ -23,8 +23,12 @@ class ComentarioPage extends StatelessWidget {
           children: [
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream:
-                    database.collection('posts').orderBy('nome').snapshots(),
+                stream: database
+                    .collection('posts')
+                    .doc('kPbYeuqXXHeXgCyKceAc')
+                    .collection('comentarios')
+                    .orderBy('uid')
+                    .snapshots(),
                 builder: (_, snapshot) {
                   if (!snapshot.hasData)
                     return Center(
