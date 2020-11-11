@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:root_nerd/edicao.page.dart';
 import 'package:root_nerd/login.page.dart';
 import 'package:root_nerd/cadastroUser.page.dart';
 import 'package:root_nerd/cadastroPost.page.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         '/perfil': (context) => PerfilPage(),
         '/atualizarPerfil': (context) => AtualizarPerfilPage(),
         '/atualizarSenha': (context) => AtualizarSenhaPage(),
-        '/rascunho': (context) => RascunhoPage()
+        '/rascunho': (context) => RascunhoPage(),
+        '/edicao': (context) => EdicaoPage(),
       },
       initialRoute: '/',
       debugShowCheckedModeBanner: false,

@@ -48,7 +48,7 @@ class ItemNerd extends StatelessWidget {
         if (_auth.currentUser.uid == itemnerd.uid) {
           scaffoldKey.currentState.showBottomSheet(
             (context) => Container(
-              height: 120,
+              height: 180,
               color: Colors.white,
               child: ListView(
                 children: [
@@ -56,9 +56,9 @@ class ItemNerd extends StatelessWidget {
                     title: Text("Editar", style: TextStyle(color: Colors.red)),
                     leading: Icon(Icons.edit, color: Colors.red),
                   
-                    onTap: () {
-                      // Implementar tela de edição de oferta.
-                    
+                    onTap: () async {
+                      await Navigator.of(context)
+                          .pushNamed("/edicao", arguments: itemnerd);
                       Navigator.of(context).pop();
                     },
                   ),
@@ -66,6 +66,13 @@ class ItemNerd extends StatelessWidget {
                     title: Text("Apagar", style: TextStyle(color: Colors.red)),
                     leading: Icon(Icons.delete, color: Colors.red),
                     onTap: () => confirmaExclusao(context, itemnerd.id),
+                    ),
+                  Divider(),
+                  ListTile(
+                    title:
+                        Text("Cancelar", style: TextStyle(color: Colors.red)),
+                    // leading: Icon(Icons.delete, color: Colors.red),
+                    onTap: () => Navigator.of(context).pop(),
                   )
                 ],
               ),

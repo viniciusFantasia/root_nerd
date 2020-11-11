@@ -24,8 +24,10 @@ class LoginPage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage('../img/home.png'),
+                    backgroundImage: AssetImage('img/home.png'),
                   ),
+                  Image(image: AssetImage('img/logo.png'),
+                  width: 300,),
                   SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
