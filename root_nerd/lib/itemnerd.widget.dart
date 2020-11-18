@@ -49,12 +49,11 @@ class ItemNerd extends StatelessWidget {
           scaffoldKey.currentState.showBottomSheet(
             (context) => Container(
               height: 180,
-              color: Colors.white,
               child: ListView(
                 children: [
                   ListTile(
-                    title: Text("Editar", style: TextStyle(color: Colors.red)),
-                    leading: Icon(Icons.edit, color: Colors.red),
+                    title: Text("Editar"),
+                    leading: Icon(Icons.edit, color: Color(0xFF99e265)),
                   
                     onTap: () async {
                       await Navigator.of(context)
@@ -63,14 +62,14 @@ class ItemNerd extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    title: Text("Apagar", style: TextStyle(color: Colors.red)),
-                    leading: Icon(Icons.delete, color: Colors.red),
+                    title: Text("Apagar"),
+                    leading: Icon(Icons.delete, color: Color(0xFF99e265)),
                     onTap: () => confirmaExclusao(context, itemnerd.id),
                     ),
-                  Divider(),
+                  
                   ListTile(
                     title:
-                        Text("Cancelar", style: TextStyle(color: Colors.red)),
+                        Text("Cancelar", style: TextStyle(color: Color(0xFF99e265))),
                     // leading: Icon(Icons.delete, color: Colors.red),
                     onTap: () => Navigator.of(context).pop(),
                   )
@@ -151,7 +150,7 @@ class ItemNerd extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed('/perfil');
+                          Navigator.of(context).pushNamed('/perfil', arguments: itemnerd.uid);
                         },
                         child: CircleAvatar(
                           radius: 25,
