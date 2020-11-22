@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ComentarioPage extends StatelessWidget {
   FirebaseFirestore database = FirebaseFirestore.instance;
   var formKey = GlobalKey<FormState>();
-
+  String mensagem;
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -25,7 +25,7 @@ class ComentarioPage extends StatelessWidget {
               child: StreamBuilder<QuerySnapshot>(
                 stream: database
                     .collection('posts')
-                    .doc('kPbYeuqXXHeXgCyKceAc')
+                    .doc('HSKH4GGOdZ6VwjIeZ2s3')
                     .collection('comentarios')
                     .orderBy('uid')
                     .snapshots(),
@@ -70,6 +70,7 @@ class ComentarioPage extends StatelessWidget {
                 children: [
                   Flexible(
                     child: TextFormField(
+                      onSaved: (value) => mensagem = value,
                       decoration: InputDecoration(
                         labelText: "Digite aqui seu Comentário",
                       ),
@@ -84,7 +85,16 @@ class ComentarioPage extends StatelessWidget {
                       if (formKey.currentState.validate()) {
                         // TODO: Salvar os dados no banco de dados (Firestore)
                         // TODO: Mostrar uma mensagem de sucesso.
-                        Navigator.of(context).pop();
+                        formKey.currentState.save();
+                        database
+                            .collection('posts')
+                            .doc('HSKH4GGOdZ6VwjIeZ2s3')
+                            .collection('comentarios')
+                            .add({
+                          "uid": '123',
+                          "mensagem": mensagem,
+                          "data": DateTime.now(),
+                        });
                       }
                     },
                   ),
