@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 
 class CadastroUserPage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _database = FirebaseFirestore.instance;
 
-  String nome, email, senha;
+  String nome, email, bio, senha;
 
   var _formKey = GlobalKey<FormState>();
   var _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -77,8 +79,24 @@ class CadastroUserPage extends StatelessWidget {
                   ),
                   
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
+TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Bio",
+                    ),
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                    validator: (value) =>
+                        value.isEmpty ? 'Campo obrigatório' : null,
+                    autovalidate: false,
+                     onSaved: (value) => bio = value,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: "E-mail",
@@ -92,7 +110,7 @@ class CadastroUserPage extends StatelessWidget {
                      onSaved: (value) => email = value,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -108,7 +126,7 @@ class CadastroUserPage extends StatelessWidget {
                      onSaved: (value) => senha = value,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -123,6 +141,7 @@ class CadastroUserPage extends StatelessWidget {
                                     email: email, password: senha);
                             await credentials.user
                                 .updateProfile(displayName: nome);
+                                _database.collection("perfis").doc(credentials.user.uid).set({"nome":nome, "bio":bio});
                             Navigator.of(context).pushNamed('/home');
                           } on FirebaseAuthException catch (ex) {
                             _scaffoldKey.currentState.showSnackBar(SnackBar(

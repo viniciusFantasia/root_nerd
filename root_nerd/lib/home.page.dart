@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               height: 20,
             ),
             CheckboxListTile(
-                title: Text('#anime'),
+                title: Text('#Anime'),
                 value: anime,
                 onChanged: (value) {
                   setState(() {
@@ -67,10 +67,10 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             CheckboxListTile(
-                title: Text('#filme'),
+                title: Text('#Filme'),
                 value: filme,
                 onChanged: (value) {
                   setState(() {
@@ -78,10 +78,10 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             CheckboxListTile(
-                title: Text('#HQ'),
+                title: Text('#Série'),
                 value: hq,
                 onChanged: (value) {
                   setState(() {
@@ -89,10 +89,10 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             CheckboxListTile(
-                title: Text('#desenho'),
+                title: Text('#HQ'),
                 value: desenho,
                 onChanged: (value) {
                   setState(() {
@@ -100,10 +100,10 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             CheckboxListTile(
-                title: Text('#desenho'),
+                title: Text('#Desenho'),
                 value: manga,
                 onChanged: (value) {
                   setState(() {
@@ -111,7 +111,29 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             SizedBox(
-              height: 10,
+              height: 5,
+            ),
+            CheckboxListTile(
+                title: Text('#Jogo'),
+                value: desenho,
+                onChanged: (value) {
+                  setState(() {
+                    desenho = value;
+                  });
+                }),
+            SizedBox(
+              height: 5,
+            ),
+            CheckboxListTile(
+                title: Text('#Outro'),
+                value: desenho,
+                onChanged: (value) {
+                  setState(() {
+                    desenho = value;
+                  });
+                }),
+            SizedBox(
+              height: 5,
             ),
             ListTile(
               title: FlatButton(

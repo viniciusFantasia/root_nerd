@@ -2,12 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 
-class CadastroPostPage extends StatelessWidget {
+class CadastroPostPage extends StatefulWidget {
+  @override
+  _CadastroPostPageState createState() => _CadastroPostPageState();
+}
+
+class _CadastroPostPageState extends State<CadastroPostPage> {
   var formKey = GlobalKey<FormState>();
 
 FirebaseFirestore _database = FirebaseFirestore.instance;
+
 final FirebaseAuth _auth = FirebaseAuth.instance;
-  String nome, referencia, descricao;
+
+  String nome, hashtag, referencia, descricao, dropdownValue;
 
   Widget build(BuildContext context) {
     
@@ -56,11 +63,11 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Nome",
+                      labelText: "Título",
                     ),
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
@@ -73,6 +80,34 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                   SizedBox(
                     height: 10,
                   ),
+                                    
+                  DropdownButtonFormField<String>(
+                  value: dropdownValue,
+                  hint: Text("Categoria"),
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                  isExpanded: true,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 24,
+                  onSaved: (value) => hashtag = value,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue = newValue;
+                    });
+                  },
+                  items: <String>['#Anime', '#Filme', '#Série', '#HQ', '#Desenho', '#Jogo', '#Outro']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: "Referência",
@@ -88,6 +123,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                   SizedBox(
                     height: 10,
                   ),
+            
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: "Escreva uma Descrição",
@@ -106,7 +142,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                     onSaved: (value) => descricao = value,
                   ),
                   SizedBox(
-                    height: 60,
+                    height: 10,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -117,7 +153,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                   //TODO: Salvar os dados do banco de dados (Firestone)
                   formKey.currentState.save();
                   User user = _auth.currentUser;
-                  await _database.collection('posts').add({'nome': nome, 'referencia': referencia, 'descricao': descricao, 'likes': 0, 'avaliacao': 0, 'data': DateTime.now(), 'hashtag': 'usahuas', "uid": user.uid, "nomeUsuario": user.displayName });
+                  await _database.collection('posts').add({'nome': nome, 'referencia': referencia, 'descricao': descricao, 'likes': 0, 'avaliacao': 0, 'data': DateTime.now(), 'hashtag': hashtag, "uid": user.uid, "nomeUsuario": user.displayName });
 
                   //TODO: Mostrar uma mensagem de sucesso.
                   Navigator.of(context).pop();

@@ -3,12 +3,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:root_nerd/models/itemnerd.model.dart';
 
-class EdicaoPage extends StatelessWidget {
+class EdicaoPage extends StatefulWidget {
+  @override
+  _EdicaoPageState createState() => _EdicaoPageState();
+}
+
+class _EdicaoPageState extends State<EdicaoPage> {
   var formKey = GlobalKey<FormState>();
 
 FirebaseFirestore _database = FirebaseFirestore.instance;
+
 final FirebaseAuth _auth = FirebaseAuth.instance;
-  String nome, referencia, descricao;
+
+  String nome, hashtag, referencia, descricao, dropdownValue;
 
   Widget build(BuildContext context) {
     
@@ -24,6 +31,8 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
             color: Colors.black,
           ),
         ),
+        backgroundColor: Color(0xFF99e265),
+        centerTitle: true,
 
       ),
       body: Center(
@@ -52,7 +61,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                   TextFormField(
                     initialValue: item.nome,
                     decoration: InputDecoration(
-                      labelText: "Nome",
+                      labelText: "Título",
                     ),
                     style: TextStyle(
                       color: Theme.of(context).primaryColorLight,
@@ -69,6 +78,33 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                   SizedBox(
                     height: 10,
                   ),
+                  DropdownButtonFormField<String>(
+                  value: item.hashtag,
+                  hint: Text("Categoria"),
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                  isExpanded: true,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 24,
+                  onSaved: (value) => hashtag = value,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue = newValue;
+                    });
+                  },
+                  items: <String>['#Anime', '#Filme', '#Série', '#HQ', '#Desenho', '#Jogo', '#Outro']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+
                   TextFormField(
                     initialValue: item.referencia,
                     decoration: InputDecoration(
@@ -118,6 +154,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
                 // ~ UPDATE Ofertas SET nome=, empresa=, preco=, descricao=.. WHERE id=...
                 _database.collection('posts').doc(item.id).update({
                   "nome": nome,
+                  "hashtag": hashtag,
                   "referencia": referencia,
                   "descricao": descricao
                 });
