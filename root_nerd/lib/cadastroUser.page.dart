@@ -45,11 +45,11 @@ class CadastroUserPage extends StatelessWidget {
                   //height: 230,
                   //),
                   CircleAvatar(
-                    radius: 135,
-                    backgroundColor: Colors.brown[300],
+                    radius: 103,
+                    backgroundColor: Colors.grey[500],
                     child: CircleAvatar(
                       backgroundImage: AssetImage('../img/home.png'),
-                      radius: 130,
+                      radius: 100,
                     ),
                   ),
                   SizedBox(
