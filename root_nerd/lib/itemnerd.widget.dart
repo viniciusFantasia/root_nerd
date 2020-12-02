@@ -210,7 +210,7 @@ class ItemNerd extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed('/comentario');
+                              Navigator.of(context).pushNamed('/comentario', arguments: itemnerd.id);
                             },
                             child: Column(
                               children: [

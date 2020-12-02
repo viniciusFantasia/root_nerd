@@ -39,7 +39,7 @@ class ItemComentario extends StatelessWidget {
                     Navigator.of(context).pushNamed('/perfil');
                   },
                   child: Text(
-                    itemcomentario.uid,
+                    itemcomentario.nome,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
